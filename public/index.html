@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Student Health Chatbot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Login/Register Section -->
+    <div id="auth-section" class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1><i class="fas fa-heartbeat"></i> Student Health Chatbot</h1>
+                <p>Your AI-powered health companion</p>
+            </div>
+            
+            <!-- Login Form -->
+            <div id="login-form" class="auth-form active">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="loginUsername" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="auth-btn">Login</button>
+                </form>
+                <p class="auth-switch">Don't have an account? <a href="#" onclick="showRegister()">Sign up</a></p>
+            </div>
+            
+            <!-- Register Form -->
+            <div id="register-form" class="auth-form">
+                <h2>Sign Up</h2>
+                <form id="registerForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="registerUsername" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerPassword" placeholder="Password" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="auth-btn">Sign Up</button>
+                </form>
+                <p class="auth-switch">Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Chatbot Section -->
+    <div id="chatbot-section" class="chatbot-container" style="display: none;">
+        <!-- Header -->
+        <div class="chatbot-header">
+            <div class="header-left">
+                <h1><i class="fas fa-heartbeat"></i> Health Chatbot</h1>
+                <span id="username-display"></span>
+            </div>
+            <div class="header-right">
+                <button id="logout-btn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" onclick="showTab('chat')">Chat</button>
+            <button class="tab-btn" onclick="showTab('history')">History</button>
+        </div>
+
+        <!-- Chat Tab -->
+        <div id="chat-tab" class="tab-content active">
+            <div class="chat-container">
+                <div id="chat-messages" class="chat-messages">
+                    <div class="bot-message">
+                        <div class="message-content">
+                            <i class="fas fa-robot"></i>
+                            <p>Hello! I'm your AI health assistant. I can help you with health-related questions like headaches, stress, diet, sleep, and more. How can I help you today?</p>
+                        </div>
+                        <span class="message-time"></span>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <div class="input-wrapper">
+                        <input type="text" id="chat-input" placeholder="Ask me about your health concerns..." maxlength="500">
+                        <button id="send-btn" class="send-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Tab -->
+        <div id="history-tab" class="tab-content">
+            <div class="history-container">
+                <div class="history-header">
+                    <h3><i class="fas fa-history"></i> Chat History</h3>
+                    <button id="refresh-history" class="refresh-btn">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+                <div id="history-messages" class="history-messages">
+                    <div class="loading">Loading chat history...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Processing your request...</p>
+        </div>
+    </div>
+
+    <!-- Error/Success Messages -->
+    <div id="message-toast" class="message-toast" style="display: none;">
+        <span id="toast-message"></span>
+        <button onclick="hideToast()">&times;</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <h3>Done by:</h3>
+            <div class="team-members">
+                <div class="team-member">
+                    <span class="name">SHARAN KK</span>
+                    <span class="email">sharankk2310@gmail.com</span>
+                </div>
+                <div class="team-member">
+                    <span class="name">VASANTH V</span>
+                    <span class="email">vasanthvelu0927@gmail.com</span>
+                </div>
+                <div class="team-member">
+                    <span class="name">SUVITH S</span>
+                    <span class="email">suvithsivakumar19@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
